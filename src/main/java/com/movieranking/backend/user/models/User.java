@@ -1,5 +1,7 @@
 package com.movieranking.backend.user.models;
 
+import com.movieranking.backend.gender.models.Gender;
+
 import javax.persistence.*;
 import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.Size;
@@ -20,6 +22,10 @@ public class User {
     @Size(min = 5, max = 20)
     @NotBlank(message = "Email is mandatory!")
     private String email;
+
+    @ManyToOne
+    @JoinColumn(name = "gender_id")
+    private Gender gender;
 
     @Column(length = 100)
     @Size(min = 5, max = 100)

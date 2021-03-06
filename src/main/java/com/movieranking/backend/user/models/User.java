@@ -21,6 +21,7 @@ public class User {
     @NotBlank(message = "Email is mandatory!")
     private String email;
 
+    @Column(length = 100)
     @Size(min = 5, max = 100)
     private String specialNotes;
 }

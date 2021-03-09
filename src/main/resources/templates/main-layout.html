@@ -6,18 +6,13 @@
 <!--<div th:replace="nav :: navbar"></div>-->
 
 <div id="page-content" class="container">
-    <div class="row">
-
-        <div th:replace="@{'views/' + ${content}} :: ${content}"></div>
-
-    </div>
-    <!-- /.row -->
+    
 </div>
 <!-- /.container -->
 
 </body>
 
 <div th:replace="fragments/footer :: footer"></div>
-<div th:include="fragments/footer-scripts :: footer-scripts"></div>
+<div th:replace="fragments/footer-scripts :: footer-scripts"></div>
 
 </html>

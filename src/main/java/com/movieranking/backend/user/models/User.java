@@ -1,10 +1,12 @@
 package com.movieranking.backend.user.models;
 
 import com.movieranking.backend.gender.models.Gender;
+import com.movieranking.backend.role.models.Role;
 
 import javax.persistence.*;
 import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.Size;
+import java.util.Set;
 
 @Entity
 public class User {
@@ -26,6 +28,9 @@ public class User {
     @ManyToOne
     @JoinColumn(name = "gender_id")
     private Gender gender;
+
+    @ManyToMany
+    private Set<Role> roles;
 
     @Column(length = 100)
     @Size(min = 5, max = 100)
@@ -88,5 +93,13 @@ public class User {
 
     public void setSpecialNotes(String specialNotes) {
         this.specialNotes = specialNotes;
+    }
+
+    public Set<Role> getRoles() {
+        return roles;
+    }
+
+    public void setRoles(Set<Role> roles) {
+        this.roles = roles;
     }
 }

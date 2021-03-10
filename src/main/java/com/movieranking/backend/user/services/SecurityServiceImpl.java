@@ -13,20 +13,23 @@ import org.springframework.stereotype.Service;
 @Service
 public class SecurityServiceImpl implements SecurityService {
 
-    @Autowired
-    AuthenticationManager authenticationManager;
+    private final AuthenticationManager authenticationManager;
 
-    @Autowired
-    private UserDetailsService userDetailsService;
+    private final UserDetailsService userDetailsService;
 
     private static final Logger logger = LoggerFactory.getLogger(SecurityServiceImpl.class);
+
+    public SecurityServiceImpl(AuthenticationManager authenticationManager, UserDetailsService userDetailsService) {
+        this.authenticationManager = authenticationManager;
+        this.userDetailsService = userDetailsService;
+    }
 
     @Override
     public String findLoggedInLogin() {
         Object userDetails = SecurityContextHolder.getContext().getAuthentication().getDetails();
 
         if (userDetails instanceof UserDetails) {
-            return ((UserDetails)userDetails).getUsername();
+            return ((UserDetails) userDetails).getUsername();
         }
 
         return null;

@@ -32,6 +32,14 @@ public class User {
     @ManyToMany
     private Set<Role> roles;
 
+    @Column(unique = false, nullable = false, length = 20)
+    @Size(min = 5, max = 20)
+    @NotBlank(message = "password is mandatory!")
+    private String password;
+
+    @Transient
+    private String passwordConfirm;
+
     @Column(length = 100)
     @Size(min = 5, max = 100)
     private String specialNotes;
@@ -82,5 +90,21 @@ public class User {
 
     public void setRoles(Set<Role> roles) {
         this.roles = roles;
+    }
+
+    public String getPassword() {
+        return password;
+    }
+
+    public void setPassword(String password) {
+        this.password = password;
+    }
+
+    public String getPasswordConfirm() {
+        return passwordConfirm;
+    }
+
+    public void setPasswordConfirm(String passwordConfirm) {
+        this.passwordConfirm = passwordConfirm;
     }
 }

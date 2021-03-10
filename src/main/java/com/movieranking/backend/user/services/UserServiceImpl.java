@@ -3,7 +3,6 @@ package com.movieranking.backend.user.services;
 import com.movieranking.backend.role.repositories.RoleRepository;
 import com.movieranking.backend.user.models.User;
 import com.movieranking.backend.user.repositories.UserRepository;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Service;
 
@@ -28,7 +27,7 @@ public class UserServiceImpl implements UserService{
     public void save(User user) {
         user.setPassword(bCryptPasswordEncoder.encode(user.getPassword()));
         user.setRoles(new HashSet<>(roleRepository.findAll()));
-        userRepository.save(user)
+        userRepository.save(user);
     }
 
     @Override

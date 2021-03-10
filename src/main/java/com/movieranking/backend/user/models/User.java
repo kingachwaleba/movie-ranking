@@ -30,7 +30,7 @@ public class User {
     private Gender gender;
 
     @ManyToMany
-    private Set<Role> roles;
+    private Set<Role> role;
 
     @Column(unique = false, nullable = false, length = 20)
     @Size(min = 5, max = 20)
@@ -84,12 +84,12 @@ public class User {
         this.specialNotes = specialNotes;
     }
 
-    public Set<Role> getRoles() {
-        return roles;
+    public Set<Role> getRole() {
+        return role;
     }
 
-    public void setRoles(Set<Role> roles) {
-        this.roles = roles;
+    public void setRole(Set<Role> role) {
+        this.role = role;
     }
 
     public String getPassword() {

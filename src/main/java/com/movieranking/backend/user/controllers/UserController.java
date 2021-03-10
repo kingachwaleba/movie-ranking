@@ -26,13 +26,13 @@ public class UserController {
     public String registration(Model model) {
         model.addAttribute("userForm", new User());
 
-        return "registration";
+        return "views/registration";
     }
 
     @PostMapping("/registration")
     public String registration(@ModelAttribute("userForm") User userForm, BindingResult bindingResult) {
         if (bindingResult.hasErrors()) {
-            return "registration";
+            return "views/registration";
         }
 
         userService.save(userForm);
@@ -50,11 +50,11 @@ public class UserController {
         if (logout != null)
             model.addAttribute("message", "You have been logged out successfully.");
 
-        return "login";
+        return "views/login";
     }
 
     @GetMapping({"/", "/index"})
     public String welcome(Model model) {
-        return "welcome";
+        return "main-layout";
     }
 }

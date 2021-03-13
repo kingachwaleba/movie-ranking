@@ -32,7 +32,7 @@ public class User {
     @ManyToMany
     private Set<Role> role;
 
-    @Column(unique = false, nullable = false, length = 20)
+    @Column(unique = false, nullable = false)
     @Size(min = 5, max = 20)
     @NotBlank(message = "password is mandatory!")
     private String password;

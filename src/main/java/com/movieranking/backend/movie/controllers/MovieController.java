@@ -16,9 +16,9 @@ public class MovieController {
         this.movieRepository = movieRepository;
     }
 
-    @GetMapping("/index")
-    public String showMovies(Model model) {
-        model.addAttribute("movies", movieRepository.findAll());
-        return "main-layout";
-    }
+//    @GetMapping("/index")
+//    public String showMovies(Model model) {
+//        model.addAttribute("movies", movieRepository.findAll());
+//        return "main-layout";
+//    }
 }

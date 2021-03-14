@@ -2,7 +2,7 @@ package com.movieranking.backend.user.services;
 
 public interface SecurityService {
 
-    String findLoggedInLogin();
+    boolean isAuthenticated();
 
     void autoLogin(String login, String password);
 }

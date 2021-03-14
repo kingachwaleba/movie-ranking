@@ -24,6 +24,10 @@ public class UserController {
 
     @GetMapping("/registration")
     public String registration(Model model) {
+        if (securityService.isAuthenticated()) {
+            return "redirect:/";
+        }
+
         model.addAttribute("userForm", new User());
 
         return "views/registration";

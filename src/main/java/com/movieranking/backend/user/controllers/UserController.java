@@ -48,6 +48,10 @@ public class UserController {
 
     @GetMapping("/login")
     public String login(Model model, String error, String logout) {
+        if (securityService.isAuthenticated()) {
+            return "redirect:/";
+        }
+
         if (error != null)
             model.addAttribute("error", "Your username and password is invalid.");
 

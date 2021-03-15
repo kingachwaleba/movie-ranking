@@ -2,7 +2,7 @@
 <html lang="pl" xmlns:th="http://www.thymeleaf.org">
 <head th:replace="fragments/header :: header"></head>
 <body>
-
+55555555
 <nav th:replace="fragments/navbar :: nav"></nav>
 
 <!-- Page Content -->
@@ -20,7 +20,7 @@
                             <input id="login" type="text" th:field="*{login}" class="form-control"
                                    pattern="^(?=.*[A-Za-z0-9]$)[A-Za-z][A-Za-z\d.-]{4,8}$"
                                    name="login" placeholder="Login" value="{{ old('name') }}" required
-                                   autocomplete="name" autofocus minlength="5" maxlength="8"
+                                   autocomplete="name" autofocus minlength="5" maxlength="20"
                                    title="Proszę podać login. Może zawierać zarówno cyfry, litery, jak i znak -, musi zaczynać się od litery, od 5 do 8 znaków.">
 
                             <span class="has-error" th:if="${#fields.hasErrors('login')}" th:errors="*{login}"

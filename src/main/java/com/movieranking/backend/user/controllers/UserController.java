@@ -3,6 +3,7 @@ package com.movieranking.backend.user.controllers;
 import com.movieranking.backend.user.models.User;
 import com.movieranking.backend.user.services.SecurityService;
 import com.movieranking.backend.user.services.UserService;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
@@ -17,9 +18,12 @@ public class UserController {
 
     private final SecurityService securityService;
 
-    public UserController(UserService userService, SecurityService securityService) {
+    private final UserValidator userValidator;
+
+    public UserController(UserService userService, SecurityService securityService, UserValidator userValidator) {
         this.userService = userService;
         this.securityService = securityService;
+        this.userValidator = userValidator;
     }
 
     @GetMapping("/registration")
@@ -35,6 +39,8 @@ public class UserController {
 
     @PostMapping("/registration")
     public String registration(@ModelAttribute("userForm") User userForm, BindingResult bindingResult) {
+        userValidator.validate(userForm, bindingResult);
+
         if (bindingResult.hasErrors()) {
             return "views/registration";
         }

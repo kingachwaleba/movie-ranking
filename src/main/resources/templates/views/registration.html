@@ -16,10 +16,10 @@
                 <div class="card-body">
                     <form class="form-signin" method="POST" th:object="${userForm}" th:action="@{/registration}">
                         <div class="form-label-group">
-                            <label for="name">Login</label>
-                            <input id="name" type="text" th:field="*{login}" class="form-control"
+                            <label for="login">Login</label>
+                            <input id="login" type="text" th:field="*{login}" class="form-control"
                                    pattern="^(?=.*[A-Za-z0-9]$)[A-Za-z][A-Za-z\d.-]{4,8}$"
-                                   name="name" placeholder="Login" value="{{ old('name') }}" required
+                                   name="login" placeholder="Login" value="{{ old('name') }}" required
                                    autocomplete="name" autofocus minlength="5" maxlength="8"
                                    title="Proszę podać login. Może zawierać zarówno cyfry, litery, jak i znak -, musi zaczynać się od litery, od 5 do 8 znaków.">
 
@@ -54,17 +54,16 @@
                             <label for="password-confirm">Potwierdź hasło</label>
                             <input id="password-confirm" type="password" th:field="*{passwordConfirm}"
                                    class="form-control"
-                                   name="password_confirmation"
+                                   name="passwordConfirm"
                                    placeholder="Ponowne hasło" required autocomplete="new-password"
                                    title="Proszę podać ponownie hasło.">
 
                             <span class="has-error" th:if="${#fields.hasErrors('passwordConfirm')}"
                                   th:errors="*{passwordConfirm}" role="alert"></span>
-                            <br/>
                         </div>
 
                         <div class="form-label-group">
-                            <label for="name">O sobie</label>
+                            <label for="specialNotes">O sobie</label>
                             <input id="specialNotes" type="text" th:field="*{specialNotes}" class="form-control"
                                    pattern="^(?=.*[A-Za-z0-9]$)[A-Za-z][A-Za-z\d.-]{4,8}$"
                                    name="specialNotes" placeholder="O sobie" value="{{ old('specialNotes') }}"

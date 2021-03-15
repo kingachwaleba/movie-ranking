@@ -59,10 +59,10 @@ public class UserController {
         }
 
         if (error != null)
-            model.addAttribute("error", "Your username and password is invalid.");
+            model.addAttribute("error", "Podano błędny login lub hasło");
 
         if (logout != null)
-            model.addAttribute("message", "You have been logged out successfully.");
+            model.addAttribute("message", "Nastąpiło poprawne wylogowanie");
 
         return "views/login";
     }

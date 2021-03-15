@@ -51,7 +51,7 @@ public class UserValidator implements Validator {
             errors.rejectValue("passwordConfirm", "Diff.userForm.passwordConfirm");
         }
 
-        if (user.getSpecialNotes().length() < 4 || user.getSpecialNotes().length() > 101) {
+        if (user.getSpecialNotes().length() != 0 && (user.getSpecialNotes().length() < 4 || user.getSpecialNotes().length() > 101)) {
             errors.rejectValue("specialNotes", "Size.userForm.specialNotes");
         }
     }

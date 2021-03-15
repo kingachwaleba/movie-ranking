@@ -3,6 +3,19 @@
  * Copyright 2013-2020 Start Bootstrap
  * Licensed under MIT (https://github.com/StartBootstrap/startbootstrap-blog-home/blob/master/LICENSE)
  */
+header {
+    min-height: 50px;
+}
+
+footer {
+    min-height: 125px;
+    margin-top: auto;
+}
+
 body {
+    display: flex;
+    flex-direction: column;
     padding-top: 56px;
+    height: 100vh;
+    margin: 0;
 }

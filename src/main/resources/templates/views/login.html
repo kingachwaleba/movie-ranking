@@ -7,23 +7,38 @@
 
 <!-- Page Content -->
 <div class="container">
-    <form class="form-signin" method="POST" th:action="@{/login}">
-        <h2 class="form-heading">Log in</h2>
+    <div class="col-sm-9 col-md-7 col-lg-5 mx-auto">
+        <div class="card card-signin my-5">
+            <div class="card-body">
+                <h5 class="card-title text-center">Log in</h5>
+                <form class="form-signin" method="POST" th:action="@{/login}">
+                    <div class="form-label-group">
+                        <span th:text="${message}"></span>
+                        <label for="login"></label>
+                            <input name="login" id="login" type="text" class="form-control" placeholder="Login"
+                                   autofocus/>
+                    </div>
 
-        <div class="form-group">
-            <span th:text="${message}"></span>
-            <input name="username" type="text" class="form-control" placeholder="Username"
-                   autofocus="true"/>
+                    <div class="form-label-group">
+                        <label for="password"></label>
+                            <input name="password" id="password" type="password" class="form-control" placeholder="Password"/>
+                        <span class="has-error" th:text="${error}"></span>
+                    </div>
 
-            <input name="password" type="password" class="form-control" placeholder="Password"/>
-            <span class="has-error" th:text="${error}"></span>
+                    <hr>
 
-            <input type="hidden" name="${_csrf.parameterName}" value="${_csrf.token}"/>
+                    <input type="hidden" name="${_csrf.parameterName}" value="${_csrf.token}"/>
 
-            <button class="btn btn-lg btn-primary btn-block" type="submit">Log In</button>
-            <h4 class="text-center"><a href="/registration">Create an account</a></h4>
+                    <p><i>Do not have an account?</i>
+                        <a class="text-info" href="/registration">Create an account</a>
+                    </p>
+
+                    <button class="btn btn-lg btn-dark btn-block text-uppercase" type="submit">Log In</button>
+
+                </form>
+            </div>
         </div>
-    </form>
+    </div>
 </div>
 <!-- /.container -->
 

@@ -25,10 +25,6 @@ public class User {
     @NotBlank(message = "Email is mandatory!")
     private String email;
 
-    @ManyToOne
-    @JoinColumn(name = "gender_id")
-    private Gender gender;
-
     @ManyToMany
     private Set<Role> role;
 
@@ -66,14 +62,6 @@ public class User {
 
     public void setEmail(String email) {
         this.email = email;
-    }
-
-    public Gender getGender() {
-        return gender;
-    }
-
-    public void setGender(Gender gender) {
-        this.gender = gender;
     }
 
     public String getSpecialNotes() {

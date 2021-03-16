@@ -67,7 +67,7 @@
                             <input id="specialNotes" type="text" th:field="*{specialNotes}" class="form-control"
                                    pattern="^(?=.*[A-Za-z0-9]$)[A-Za-z][A-Za-z\d.-]{4,8}$"
                                    name="specialNotes" placeholder="O sobie" value="{{ old('specialNotes') }}"
-                                   autocomplete="name" autofocus minlength="5" maxlength="100"
+                                   autocomplete="name" minlength="5" maxlength="100"
                                    title="Można wpisać notatki o sobie, od 5 do 100 znaków.">
 
                             <span class="has-error" th:if="${#fields.hasErrors('specialNotes')}"

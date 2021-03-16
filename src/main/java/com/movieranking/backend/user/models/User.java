@@ -1,6 +1,5 @@
 package com.movieranking.backend.user.models;
 
-import com.movieranking.backend.gender.models.Gender;
 import com.movieranking.backend.role.models.Role;
 
 import javax.persistence.*;

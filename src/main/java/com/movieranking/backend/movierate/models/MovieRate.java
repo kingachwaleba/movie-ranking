@@ -4,6 +4,7 @@ import com.movieranking.backend.movie.models.Movie;
 import com.movieranking.backend.user.models.User;
 
 import javax.persistence.*;
+import java.util.Date;
 
 @Entity
 public class MovieRate {
@@ -21,6 +22,14 @@ public class MovieRate {
     @MapsId("id")
     @JoinColumn(name = "user_id")
     User user;
+
+    @Column(nullable = false)
+    @Temporal(TemporalType.TIMESTAMP)
+    private Date createDate;
+
+    @Column
+    @Temporal(TemporalType.TIMESTAMP)
+    private Date updateDate;
 
     public long getId() {
         return id;
@@ -44,5 +53,21 @@ public class MovieRate {
 
     public void setUser(User user) {
         this.user = user;
+    }
+
+    public Date getCreateDate() {
+        return createDate;
+    }
+
+    public void setCreateDate(Date createDate) {
+        this.createDate = createDate;
+    }
+
+    public Date getUpdateDate() {
+        return updateDate;
+    }
+
+    public void setUpdateDate(Date updateDate) {
+        this.updateDate = updateDate;
     }
 }

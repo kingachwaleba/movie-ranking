@@ -74,4 +74,36 @@ public class Movie {
     public void setYear(String year) {
         this.year = year;
     }
+
+    public Set<Country> getCountry() {
+        return country;
+    }
+
+    public void setCountry(Set<Country> country) {
+        this.country = country;
+    }
+
+    public Set<Genre> getGenre() {
+        return genre;
+    }
+
+    public void setGenre(Set<Genre> genre) {
+        this.genre = genre;
+    }
+
+    public Set<MovieAuthor> getMovieAuthor() {
+        return movieAuthor;
+    }
+
+    public void setMovieAuthor(Set<MovieAuthor> movieAuthor) {
+        this.movieAuthor = movieAuthor;
+    }
+
+    public Set<MovieRate> getMovieRates() {
+        return movieRates;
+    }
+
+    public void setMovieRates(Set<MovieRate> movieRates) {
+        this.movieRates = movieRates;
+    }
 }

@@ -26,11 +26,11 @@ public class MovieRate {
 
     @Column(nullable = false)
     @Temporal(TemporalType.TIMESTAMP)
-    private Date createDate;
+    private Date createdAt;
 
     @Column
     @Temporal(TemporalType.TIMESTAMP)
-    private Date updateDate;
+    private Date updatedAt;
 
     @Column(length = 1000)
     @Size(min = 5, max = 1000)
@@ -60,20 +60,20 @@ public class MovieRate {
         this.user = user;
     }
 
-    public Date getCreateDate() {
-        return createDate;
+    public Date getCreatedAt() {
+        return createdAt;
     }
 
-    public void setCreateDate(Date createDate) {
-        this.createDate = createDate;
+    public void setCreatedAt(Date createdAt) {
+        this.createdAt = createdAt;
     }
 
-    public Date getUpdateDate() {
-        return updateDate;
+    public Date getUpdatedAt() {
+        return updatedAt;
     }
 
-    public void setUpdateDate(Date updateDate) {
-        this.updateDate = updateDate;
+    public void setUpdatedAt(Date updatedAt) {
+        this.updatedAt = updatedAt;
     }
 
     public String getDescription() {

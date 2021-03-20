@@ -2,6 +2,8 @@ package com.movieranking.backend.movie.models;
 
 import com.movieranking.backend.country.models.Country;
 import com.movieranking.backend.genre.models.Genre;
+import com.movieranking.backend.movieauthor.models.MovieAuthor;
+import com.movieranking.backend.movierate.models.MovieRate;
 
 import javax.persistence.*;
 import javax.validation.constraints.NotBlank;
@@ -34,6 +36,12 @@ public class Movie {
 
     @ManyToMany
     private Set<Genre> genre;
+
+    @OneToMany(mappedBy = "user")
+    private Set<MovieAuthor> movieAuthor;
+
+    @OneToMany(mappedBy = "user")
+    private Set<MovieRate> movieRates;
 
     public long getId() {
         return id;

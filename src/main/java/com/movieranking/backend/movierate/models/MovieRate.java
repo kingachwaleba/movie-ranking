@@ -4,6 +4,7 @@ import com.movieranking.backend.movie.models.Movie;
 import com.movieranking.backend.user.models.User;
 
 import javax.persistence.*;
+import javax.validation.constraints.Size;
 import java.util.Date;
 
 @Entity
@@ -30,6 +31,10 @@ public class MovieRate {
     @Column
     @Temporal(TemporalType.TIMESTAMP)
     private Date updateDate;
+
+    @Column(length = 1000)
+    @Size(min = 5, max = 1000)
+    private String description;
 
     public long getId() {
         return id;
@@ -69,5 +74,13 @@ public class MovieRate {
 
     public void setUpdateDate(Date updateDate) {
         this.updateDate = updateDate;
+    }
+
+    public String getDescription() {
+        return description;
+    }
+
+    public void setDescription(String description) {
+        this.description = description;
     }
 }

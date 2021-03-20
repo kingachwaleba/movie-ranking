@@ -1,8 +1,12 @@
 package com.movieranking.backend.movie.models;
 
+import com.movieranking.backend.country.models.Country;
+import com.movieranking.backend.genre.models.Genre;
+
 import javax.persistence.*;
 import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.Size;
+import java.util.Set;
 
 @Entity
 public class Movie {
@@ -24,6 +28,12 @@ public class Movie {
     @Size(min = 4, max = 4)
     @NotBlank(message = "Year is mandatory!")
     private String year;
+
+    @ManyToMany
+    private Set<Country> country;
+
+    @ManyToMany
+    private Set<Genre> genre;
 
     public long getId() {
         return id;

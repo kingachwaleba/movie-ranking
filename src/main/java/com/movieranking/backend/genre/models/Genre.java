@@ -1,6 +1,9 @@
 package com.movieranking.backend.genre.models;
 
+import com.movieranking.backend.movie.models.Movie;
+
 import javax.persistence.*;
+import java.util.List;
 
 @Entity
 public class Genre {
@@ -11,6 +14,9 @@ public class Genre {
 
     @Column(unique = true, nullable = false, length = 20)
     private String name;
+
+    @ManyToMany(mappedBy = "genre")
+    private List<Movie> movie;
 
     public long getId() {
         return id;
@@ -26,5 +32,13 @@ public class Genre {
 
     public void setName(String name) {
         this.name = name;
+    }
+
+    public List<Movie> getMovie() {
+        return movie;
+    }
+
+    public void setMovie(List<Movie> movie) {
+        this.movie = movie;
     }
 }

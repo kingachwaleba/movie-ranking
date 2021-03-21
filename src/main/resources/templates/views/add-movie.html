@@ -50,6 +50,15 @@
                           role="alert"></span>
                 </div>
 
+                <div class="form-label-group">
+                    <select th:field="*{country}">
+                        <option value="0">Wybierz kraj</option>
+                        <option th:each="country : ${countries}"
+                                th:value="${country.id}"
+                                th:text="${country.name}"></option>
+                    </select>
+                </div>
+
                 <hr>
 
                 <button type="submit" class="btn btn-lg btn-dark btn-block text-uppercase">

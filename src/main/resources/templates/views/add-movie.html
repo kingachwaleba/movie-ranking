@@ -13,59 +13,49 @@
         <!-- Blog Entries Column -->
         <div class="col-md-8">
 
-            <h1 class="my-4">Page Heading
-                <small>Secondary Text</small>
-            </h1>
+            <h1 class="my-4">Dodaj nowy film</h1>
 
             <!-- Blog Post -->
-            <div class="col-sm-9 col-md-7 col-lg-5 mx-auto">
-                <div class="card card-signin my-5">
-                    <div class="card-body">
-                        <h5 class="card-title text-center">Dodaj film</h5>
+            <form class="form-signin" method="POST" th:object="${movieForm}" th:action="@{/add-movie}">
+                <div class="form-label-group">
+                    <label for="name">Tytuł filmu</label>
+                    <input type="text" th:field="*{name}" class="form-control"
+                           placeholder="Tytuł filmu" required
+                           autofocus maxlength="50"
+                           title="Proszę podać tytuł fimu. Musi mieć do 50 znaków.">
 
-                        <div class="card-body">
-                            <form class="form-signin" method="POST" th:object="${movieForm}" th:action="@{/add-movie}">
-                                <div class="form-label-group">
-                                    <label for="name">Tytuł filmu</label>
-                                    <input type="text" th:field="*{name}" class="form-control"
-                                           placeholder="Tytuł filmu" required
-                                           autofocus maxlength="50"
-                                           title="Proszę podać tytuł fimu. Musi mieć do 50 znaków.">
-
-                                    <span class="has-error" th:if="${#fields.hasErrors('name')}" th:errors="*{name}"
-                                          role="alert"></span>
-                                </div>
-
-                                <div class="form-label-group">
-                                    <label for="description">Opis</label>
-                                    <input type="text" th:field="*{description}" class="form-control"
-                                           placeholder="Opis filmu"
-                                           maxlength="1000"
-                                           title="Można wpisać opis filmu, maksymalnie do 1000 znaków.">
-
-                                    <span class="has-error" th:if="${#fields.hasErrors('description')}"
-                                          th:errors="*{description}"
-                                          role="alert"></span>
-                                </div>
-
-                                <div class="form-label-group">
-                                    <label for="year">Rok stworzenia</label>
-                                    <input type="password" th:field="*{year}" class="form-control"
-                                           placeholder="Rok stworzenia" required
-                                           title="Proszę wybrać rok powstania filmu.">
-
-                                    <span class="has-error" th:if="${#fields.hasErrors('year')}" th:errors="*{year}"
-                                          role="alert"></span>
-                                </div>
-
-                                <button type="submit" class="btn btn-lg btn-dark btn-block text-uppercase">
-                                    DODAJ <FILM></FILM>
-                                </button>
-                            </form>
-                        </div>
-                    </div>
+                    <span class="has-error" th:if="${#fields.hasErrors('name')}" th:errors="*{name}"
+                          role="alert"></span>
                 </div>
-            </div>
+
+                <div class="form-label-group">
+                    <label for="description">Opis</label>
+                    <input type="text" th:field="*{description}" class="form-control"
+                           placeholder="Opis filmu"
+                           maxlength="1000"
+                           title="Można wpisać opis filmu, maksymalnie do 1000 znaków.">
+
+                    <span class="has-error" th:if="${#fields.hasErrors('description')}"
+                          th:errors="*{description}"
+                          role="alert"></span>
+                </div>
+
+                <div class="form-label-group">
+                    <label for="year">Rok stworzenia</label>
+                    <input type="text" th:field="*{year}" class="form-control"
+                           placeholder="Rok stworzenia" required
+                           title="Proszę wybrać rok powstania filmu.">
+
+                    <span class="has-error" th:if="${#fields.hasErrors('year')}" th:errors="*{year}"
+                          role="alert"></span>
+                </div>
+
+                <hr>
+
+                <button type="submit" class="btn btn-lg btn-dark btn-block text-uppercase">
+                    DODAJ FILM
+                </button>
+            </form>
 
         </div>
 

@@ -25,11 +25,14 @@ public class MovieController {
 
     private final GenreService genreService;
 
+    private final MovieValidator movieValidator;
+
     @Autowired
-    public MovieController(MovieService movieService, CountryService countryService, GenreService genreService) {
+    public MovieController(MovieService movieService, CountryService countryService, GenreService genreService, MovieValidator movieValidator) {
         this.movieService = movieService;
         this.countryService = countryService;
         this.genreService = genreService;
+        this.movieValidator = movieValidator;
     }
 
     @GetMapping("/add-movie")
@@ -47,6 +50,12 @@ public class MovieController {
 
     @PostMapping("/add-movie")
     public String addMovie(@ModelAttribute("movieForm") Movie movieForm, BindingResult bindingResult) {
+        movieValidator.validate(movieForm, bindingResult);
+
+        if (bindingResult.hasErrors()) {
+            return "views/add-movie";
+        }
+
         movieService.save(movieForm);
 
         return "redirect:/index";

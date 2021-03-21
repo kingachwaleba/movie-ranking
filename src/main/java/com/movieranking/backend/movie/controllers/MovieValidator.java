@@ -39,8 +39,7 @@ public class MovieValidator implements Validator {
         }
 
         ValidationUtils.rejectIfEmptyOrWhitespace(errors, "year", "NotEmpty");
-        int year = Integer.getInteger(movie.getYear());
-        if (year < 1850 || year > 2100) {
+        if (movie.getYear() < 1850 || movie.getYear() > 2100) {
             errors.rejectValue("year", "Size.movieForm.year");
         }
 

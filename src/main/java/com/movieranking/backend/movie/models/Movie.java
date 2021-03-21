@@ -26,10 +26,9 @@ public class Movie {
     @Size(min = 50, max = 1000)
     private String description;
 
-    @Column(nullable = false, length = 4)
-    @Size(min = 4, max = 4)
+    @Column(nullable = false)
     @NotBlank(message = "Year is mandatory!")
-    private String year;
+    private int year;
 
     @ManyToMany
     private Set<Country> country;
@@ -67,11 +66,11 @@ public class Movie {
         this.description = description;
     }
 
-    public String getYear() {
+    public int getYear() {
         return year;
     }
 
-    public void setYear(String year) {
+    public void setYear(int year) {
         this.year = year;
     }
 

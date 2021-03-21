@@ -42,8 +42,9 @@
 
                 <div class="form-label-group">
                     <label for="year">Rok stworzenia</label>
-                    <input type="text" th:field="*{year}" class="form-control"
+                    <input type="number" th:field="*{year}" class="form-control"
                            placeholder="Rok stworzenia" required
+                           min="1850" max="2100" step="1"
                            title="Proszę wybrać rok powstania filmu.">
 
                     <span class="has-error" th:if="${#fields.hasErrors('year')}" th:errors="*{year}"
@@ -51,11 +52,22 @@
                 </div>
 
                 <div class="form-label-group">
+                    <label for="genre">Kraj powstania</label>
                     <select th:field="*{country}">
                         <option value="0">Wybierz kraj</option>
                         <option th:each="country : ${countries}"
                                 th:value="${country.id}"
                                 th:text="${country.name}"></option>
+                    </select>
+                </div>
+
+                <div class="form-label-group">
+                    <label for="genre">Gatunek</label>
+                    <select th:field="*{genre}">
+                        <option value="0">Wybierz gatunek filmowy</option>
+                        <option th:each="genre : ${genres}"
+                                th:value="${genre.id}"
+                                th:text="${genre.name}"></option>
                     </select>
                 </div>
 

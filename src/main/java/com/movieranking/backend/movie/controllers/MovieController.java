@@ -2,6 +2,8 @@ package com.movieranking.backend.movie.controllers;
 
 import com.movieranking.backend.country.models.Country;
 import com.movieranking.backend.country.services.CountryService;
+import com.movieranking.backend.genre.models.Genre;
+import com.movieranking.backend.genre.services.GenreService;
 import com.movieranking.backend.movie.models.Movie;
 import com.movieranking.backend.movie.services.MovieService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -21,10 +23,13 @@ public class MovieController {
 
     private final CountryService countryService;
 
+    private final GenreService genreService;
+
     @Autowired
-    public MovieController(MovieService movieService, CountryService countryService) {
+    public MovieController(MovieService movieService, CountryService countryService, GenreService genreService) {
         this.movieService = movieService;
         this.countryService = countryService;
+        this.genreService = genreService;
     }
 
     @GetMapping("/add-movie")
@@ -33,6 +38,9 @@ public class MovieController {
 
         Set<Country> countries = countryService.findAll();
         model.addAttribute("countries", countries);
+
+        Set<Genre> genres = genreService.findAll();
+        model.addAttribute("genres", genres);
 
         return "views/add-movie";
     }

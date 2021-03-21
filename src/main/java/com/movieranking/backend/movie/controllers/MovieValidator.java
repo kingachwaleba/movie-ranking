@@ -30,9 +30,9 @@ public class MovieValidator implements Validator {
         if (movie.getName().length() > 51) {
             errors.rejectValue("name", "Size.movieForm.name");
         }
-//        if (movieService.findByName(user.getName()) != null) {
-//            errors.rejectValue("name", "Duplicate.movieForm.name");
-//        }
+        if (movieService.findByName(movie.getName()) != null) {
+            errors.rejectValue("name", "Duplicate.movieForm.name");
+        }
 
         if (movie.getDescription().length() != 0 && movie.getDescription().length() > 1000) {
             errors.rejectValue("description", "Size.movieForm.description");

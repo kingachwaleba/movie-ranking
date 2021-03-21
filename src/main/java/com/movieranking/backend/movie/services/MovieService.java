@@ -5,4 +5,6 @@ import com.movieranking.backend.movie.models.Movie;
 public interface MovieService {
 
     void save(Movie movie);
+
+    Movie findByName(String name);
 }

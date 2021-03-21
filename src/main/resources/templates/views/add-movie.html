@@ -53,7 +53,7 @@
 
                 <div class="form-label-group">
                     <label for="genre">Kraj powstania</label>
-                    <select th:field="*{country}">
+                    <select th:field="*{country}" multiple="multiple" required>
                         <option value="0">Wybierz kraj</option>
                         <option th:each="country : ${countries}"
                                 th:value="${country.id}"
@@ -63,7 +63,7 @@
 
                 <div class="form-label-group">
                     <label for="genre">Gatunek</label>
-                    <select th:field="*{genre}">
+                    <select th:field="*{genre}" multiple="multiple" required>
                         <option value="0">Wybierz gatunek filmowy</option>
                         <option th:each="genre : ${genres}"
                                 th:value="${genre.id}"

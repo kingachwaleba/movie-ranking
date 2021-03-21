@@ -26,13 +26,13 @@
                         <div class="card-body">
                             <form class="form-signin" method="POST" th:object="${movieForm}" th:action="@{/add-movie}">
                                 <div class="form-label-group">
-                                    <label for="title">Tytuł filmu</label>
-                                    <input type="text" th:field="*{title}" class="form-control"
+                                    <label for="name">Tytuł filmu</label>
+                                    <input type="text" th:field="*{name}" class="form-control"
                                            placeholder="Tytuł filmu" required
                                            autofocus maxlength="50"
                                            title="Proszę podać tytuł fimu. Musi mieć do 50 znaków.">
 
-                                    <span class="has-error" th:if="${#fields.hasErrors('title')}" th:errors="*{title}"
+                                    <span class="has-error" th:if="${#fields.hasErrors('name')}" th:errors="*{name}"
                                           role="alert"></span>
                                 </div>
 

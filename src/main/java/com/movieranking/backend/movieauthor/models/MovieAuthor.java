@@ -14,14 +14,12 @@ public class MovieAuthor {
     @GeneratedValue(strategy = GenerationType.AUTO)
     private long id;
 
-    @ManyToOne
-    @MapsId("id")
-    @JoinColumn(name = "movie_id")
+    @ManyToOne(cascade = CascadeType.ALL, fetch=FetchType.LAZY)
+    @JoinColumn(name="movie_id", referencedColumnName="id", nullable = false)
     Movie movie;
 
-    @ManyToOne
-    @MapsId("id")
-    @JoinColumn(name = "user_id")
+    @ManyToOne(cascade = CascadeType.ALL, fetch=FetchType.LAZY)
+    @JoinColumn(name="user_id", referencedColumnName="id", nullable = false)
     User user;
 
     @Column(nullable = false)

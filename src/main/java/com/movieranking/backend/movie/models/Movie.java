@@ -1,5 +1,6 @@
 package com.movieranking.backend.movie.models;
 
+import com.fasterxml.jackson.annotation.JsonManagedReference;
 import com.movieranking.backend.country.models.Country;
 import com.movieranking.backend.genre.models.Genre;
 import com.movieranking.backend.movieauthor.models.MovieAuthor;
@@ -8,6 +9,7 @@ import com.movieranking.backend.movierate.models.MovieRate;
 import javax.persistence.*;
 import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.Size;
+import java.util.HashSet;
 import java.util.Set;
 
 @Entity
@@ -36,8 +38,8 @@ public class Movie {
     @ManyToMany
     private Set<Genre> genre;
 
-    @OneToMany(mappedBy = "user")
-    private Set<MovieAuthor> movieAuthor;
+    @OneToMany(mappedBy="movie", cascade = CascadeType.ALL)
+    private Set<MovieAuthor> movieAuthor = new HashSet<>();
 
     @OneToMany(mappedBy = "user")
     private Set<MovieRate> movieRates;
@@ -104,5 +106,10 @@ public class Movie {
 
     public void setMovieRates(Set<MovieRate> movieRates) {
         this.movieRates = movieRates;
+    }
+
+    public void addMovieAuthor(MovieAuthor mAuthor) {
+        movieAuthor.add(mAuthor);
+        mAuthor.setMovie(this);
     }
 }

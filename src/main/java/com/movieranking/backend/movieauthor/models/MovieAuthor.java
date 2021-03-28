@@ -24,15 +24,7 @@ public class MovieAuthor {
 
     @Column(nullable = false)
     @Temporal(TemporalType.TIMESTAMP)
-    private Date createdAt;
-
-    @Column
-    @Temporal(TemporalType.TIMESTAMP)
-    private Date updatedAt;
-
-    @Column(length = 1000)
-    @Size(min = 5, max = 1000)
-    private String description;
+    private Date editedAt;
 
     public long getId() {
         return id;
@@ -58,27 +50,11 @@ public class MovieAuthor {
         this.user = user;
     }
 
-    public Date getCreatedAt() {
-        return createdAt;
+    public Date getEditedAt() {
+        return editedAt;
     }
 
-    public void setCreatedAt(Date createdAt) {
-        this.createdAt = createdAt;
-    }
-
-    public Date getUpdatedAt() {
-        return updatedAt;
-    }
-
-    public void setUpdatedAt(Date updatedAt) {
-        this.updatedAt = updatedAt;
-    }
-
-    public String getDescription() {
-        return description;
-    }
-
-    public void setDescription(String description) {
-        this.description = description;
+    public void setEditedAt(Date editedAt) {
+        this.editedAt = editedAt;
     }
 }
